@@ -31,7 +31,7 @@ class MessageForm extends React.Component {
     if (event.target.value.length > 250) {
       this.setState({
         isInvalid: true,
-        feedback: 'MAXIMUM NUMBER OF CHARACTERS REACHED: 250',
+        feedback: 'MAXIMUM NUMBER OF CHARACTERS REACHED (250)',
         message: event.target.value.substring(0,250)
       })
     }
@@ -65,7 +65,7 @@ class MessageForm extends React.Component {
                   <Button style={{backgroundColor: 'rgb(82, 11, 82)'}} type="submit">Send</Button>
                 </InputGroupAddon>
               </span>
-              <FormFeedback className="text-warning">{this.state.feedback}</FormFeedback>
+              <FormFeedback><span className="text-feedback">{this.state.feedback}</span></FormFeedback>
             </InputGroup>
             
           </FormGroup>

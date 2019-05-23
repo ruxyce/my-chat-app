@@ -33,7 +33,8 @@ html {
 }
 
 .bg-message-self {
-  background-color: rgb(82, 11, 82);
+  /* background-color: rgb(82, 11, 82); */
+  background-color: #9B4AD5;
 }
 
 .bg-userlist {
@@ -55,7 +56,7 @@ html {
 }
 
 .height-userlist {
-  height: 85vh;
+  height: 83vh;
   overflow-y: auto;
 }
 
@@ -74,4 +75,18 @@ html {
 
 .bg-custom-top {
   background-color: #F7F2F8;
+}
+
+.userlist-icon {
+  font-size: 20px;
+  color: white;
+  position: relative;
+  bottom: 2px;
+  margin-left: 5px;
+  margin-right: 3px;
+}
+
+.text-feedback {
+  color: pink;
+  text-align: center;
 }
