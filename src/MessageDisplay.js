@@ -8,15 +8,26 @@ class MessageDisplay extends React.Component {
 
   constructor(props) {
     super(props)
+    this.state = {
+      time: 0,
+    }
   }
 
   componentDidMount() {
-    this.goToLatestMessage()
-    // This doesn't work
+    this.refreshTime = setInterval(
+      () => this.setState({time: this.state.time + 1}),
+      60000
+    );
   }
 
-  componentDidUpdate() {
-    this.goToLatestMessage()
+
+
+  componentDidUpdate(prevProps) {
+    if (prevProps.conversations.length != this.props.conversations.length) { this.goToLatestMessage() }
+  }
+
+  componentWillUnmount() {
+    clearInterval(this.refreshTime);
   }
 
   goToLatestMessage = () => {

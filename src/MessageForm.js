@@ -57,7 +57,7 @@ class MessageForm extends React.Component {
                 type="text"
                 onChange={this.handleInput}
                 value={this.state.message}
-                placeholder="Enter a message to start chatting!"
+                placeholder="Enter a message..."
                 invalid={this.state.isInvalid}
               />
               <span>
