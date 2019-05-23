@@ -81,9 +81,9 @@ class App extends React.Component {
       
       <React.Fragment>
 
-        <Container className="w-75 mx-auto chat-main-container mt-4">
-          <Row className="h-100">
-            <Col xs="3" className="px-0 pb-3">
+        <Container fluid className="chat-main-container mt-4">
+          <Row className="h-100 chat-main-row">
+            <Col md="3" className="px-2 pb-3">
 
               <h5 className="text-light text-center">Currently Online: {this.state.users.length}</h5>
 
@@ -115,11 +115,11 @@ class App extends React.Component {
 
             </Col>
 
-            <Col xs={{size: 9, offset: 0}} className="d-flex flex-column">
+            <Col md="9" className="d-flex flex-column">
 
               <MessageDisplay myUsername={myUsername} conversations={conversations} blocked={blocked}/>
 
-              <div className="try-fix-height pt-0 w-100 ml-2">
+              <div className="try-fix-height pt-0 w-100">
                 <MessageForm onSend={this.handleSend} />
               </div>
 

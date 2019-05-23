@@ -31,12 +31,12 @@ class MessageDisplay extends React.Component {
 
       <React.Fragment>
 
-      <div className="w-100 flex-grow-1 border rounded mb-1 p-3 bg-dark ml-2 mt-2">
+      <div className="w-100 flex-grow-1 border rounded mb-1 p-3 bg-dark mt-2">
         <div className="w-100 overflow-custom">
 
         {conversations.length ? null : 
           <div className="w-100 h-100 d-flex align-items-center justify-content-center">
-            <h2 className="lead text-light">No Messages to Display. Start chatting now!</h2>
+            <h2 className="lead text-light text-center">No Messages to Display. Start chatting now!</h2>
           </div>
         }
 

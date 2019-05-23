@@ -24,6 +24,11 @@ html {
   height: 90vh;
 }
 
+.chat-main-row {
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
 .conv-small {
   font-size: 12px;
 }
