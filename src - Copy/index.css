@@ -13,11 +13,11 @@ code {
 }
 
 html {
-  background-color: black;
+  background-color: #343a40;
 }
 
 #root {
-  background-color: black;
+  background-color: #343a40;
 }
 
 .chat-main-container {
@@ -42,36 +42,18 @@ html {
 
 .overflow-custom {
   overflow-y: auto;
-  height: 73vh;
+  height: 75vh;
 }
 
 .border-avatar-custom {
   border: 1px solid silver;
 }
 
-.userlist-user:hover {
-  background-color: #9B4AD5;
-  cursor: pointer;
+.userlist-user {
+  list-style: none;
 }
 
 .height-userlist {
   height: 85vh;
   overflow-y: auto;
-}
-
-.try-fix-height {
-  height: 90px;
-}
-
-.wrap-break {
-  word-wrap: break-word;
-  max-width: 100%;
-}
-
-.msg-div-size {
-  max-width: calc(100% - 60px);
-}
-
-.bg-custom-top {
-  background-color: #F7F2F8;
 }

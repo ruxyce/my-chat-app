@@ -14,15 +14,15 @@ class App extends React.Component {
     this.state = {
       input: '',
       validateFail: '',
-      myusername: 'TASERFACE',
+      myusername: 'Hoho',
       users: [
         'Kevin',
         'TheLegend27',
         'LongUserNameTestTruncate',
         'Bottler',
-        'JustifyContentCenter',
+        'Flex',
         'Stranger',
-        'TASERFACE',
+        'Hoho',
         'Developer',
         'Rose',
         'Coulthard',
@@ -32,6 +32,10 @@ class App extends React.Component {
         'SendCatPics',
       ]
     }
+  }
+
+  handleSend = (message) => {
+    alert(message)
   }
 
   render() {
@@ -46,11 +50,11 @@ class App extends React.Component {
 
               <h5 className="text-light text-center">Currently Online: {this.state.users.length}</h5>
 
-              <div className="height-userlist bg-userlist border rounded mt-3">
+              <div className="height-userlist bg-userlist border rounded py-2 px-3 mt-3">
 
                 {this.state.users.map(user => {
 
-                let pClass = "text-light lead userlist-user px-3 my-0 py-2 text-truncate "
+                let pClass = "text-light lead text-truncate "
                 if (user == this.state.myusername) { pClass += "font-weight-bold"}
 
                 return (
@@ -60,11 +64,9 @@ class App extends React.Component {
 
             </Col>
 
-            <Col xs={{size: 9, offset: 0}} className="d-flex flex-column">
+            <Col xs="9" className="d-flex flex-column">
 
-              <MessageDisplay />
-
-              {/* <div className="w-100 flex-grow-1 border rounded mb-2 p-3">
+              <div className="w-100 flex-grow-1 border rounded mb-2 p-3">
                 <div className="w-100 overflow-custom">
                   <MessageDisplay />
                 </div>
@@ -72,7 +74,7 @@ class App extends React.Component {
 
               <div className="">
                 <MessageForm onSend={this.handleSend} />
-              </div> */}
+              </div>
             </Col>  
 
 
