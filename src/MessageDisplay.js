@@ -23,7 +23,11 @@ class MessageDisplay extends React.Component {
 
 
   componentDidUpdate(prevProps) {
-    if (prevProps.conversations.length != this.props.conversations.length) { this.goToLatestMessage() }
+    if (prevProps.conversations.length != this.props.conversations.length) { 
+      // if (this.props.conversations[this.props.conversations.length-1].username == this.props.myUsername ) {
+        this.goToLatestMessage() 
+      // }
+    }
   }
 
   componentWillUnmount() {
@@ -53,7 +57,7 @@ class MessageDisplay extends React.Component {
           }}
           autoHide
           renderThumbVertical={props => <div {...props} className="thumb-vertical" />}
-          renderTrackHorizontal={props => <div {...props} style={{display: 'none'}} />}
+          // renderTrackHorizontal={props => <div {...props} style={{display: 'none'}} />}
           renderView={props => <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />}
         >
 
@@ -72,7 +76,7 @@ class MessageDisplay extends React.Component {
           let username = conv.username
           if (conv.username == this.props.myUsername) { username = "You" }
 
-          let mainDivClass = "my-1 d-flex mr-2 "
+          let mainDivClass = "mt-1 mb-2 d-flex mr-2 "
           if (conv.username == this.props.myUsername) { mainDivClass += "flex-row-reverse" }
 
           let imgDivClass = "d-flex flex-column justify-content-end p-1 "

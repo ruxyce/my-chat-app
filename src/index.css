@@ -46,10 +46,10 @@ html {
   background-color: #271933;
 }
 
-/* .overflow-custom {
+.overflow-custom {
   overflow-y: auto;
   height: 73vh;
-} */
+}
 
 .border-avatar-custom {
   border: 1px solid silver;
