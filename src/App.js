@@ -114,6 +114,10 @@ class App extends React.Component {
     this.setState({ conversations: [] })
   }
 
+  handleGetNewName = () => {
+    Socket.emit('NEW_USER')
+  }
+
   render() {
       
     const { myUsername, conversations, blocked } = this.state
@@ -179,6 +183,7 @@ class App extends React.Component {
                   onSend={this.handleSend} 
                   onClearBlockList={this.handleClearBlockList}
                   onClearWindow={this.handleClearWindow}
+                  onGetNewName={this.handleGetNewName}
                   ref={(el) => this.messageForm = el}
                 />
               </div>

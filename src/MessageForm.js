@@ -101,8 +101,11 @@ class MessageForm extends React.Component {
             <DropdownToggle split outline />
             <DropdownMenu>
               <DropdownItem header>Chat App</DropdownItem>
+              <DropdownItem onClick={this.props.onGetNewName}>Get New Username</DropdownItem>
+              <DropdownItem divider></DropdownItem>
               <DropdownItem onClick={this.props.onClearBlockList}>Clear Block List</DropdownItem>
               <DropdownItem onClick={this.props.onClearWindow}>Clear Chat Messages</DropdownItem>
+
             </DropdownMenu>
           </InputGroupButtonDropdown>
 
