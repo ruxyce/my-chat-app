@@ -10,6 +10,8 @@ import loading from './Ripple-1s-200px.gif'
 
 import { FaUser, FaKey, FaBan } from "react-icons/fa";
 
+import { Scrollbars } from 'react-custom-scrollbars'
+
 import MessageForm from './MessageForm'
 import MessageDisplay from './MessageDisplay'
 
@@ -87,7 +89,14 @@ class App extends React.Component {
 
               <h5 className="text-light text-center">Currently Online: {this.state.users.length}</h5>
 
-              <div className="height-userlist bg-userlist border rounded mt-3">
+              {/* <div className="height-userlist bg-userlist border rounded mt-3"> */}
+
+              <Scrollbars 
+                style={{ width: '100%', height: '83vh' }}
+                className="bg-userlist border rounded mt-3"
+                renderThumbVertical={(...props) => <div {...props} className="userlist-thumb-vertical" />}
+              >
+
 
                 {(this.state.users.length)?null:
                   <div className="w-100 h-100 d-flex flex-column align-items-center justify-content-center">
@@ -111,7 +120,10 @@ class App extends React.Component {
                     <div className={pClass}>{user.username}{(user.username == this.state.myUsername)?<span> (You)</span>:null}</div>
                   </div>
                 )})}
-              </div>
+
+              {/* </div> */}
+              </Scrollbars>
+
 
             </Col>
 

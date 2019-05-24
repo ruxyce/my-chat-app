@@ -2,7 +2,7 @@ import React from 'react'
 
 import moment from 'moment'
 
-import Image from 'react-graceful-image'
+import { Scrollbars } from 'react-custom-scrollbars'
 
 class MessageDisplay extends React.Component {
 
@@ -41,9 +41,19 @@ class MessageDisplay extends React.Component {
     return (
 
       <React.Fragment>
-
+      
+        
+      
       <div className="w-100 flex-grow-1 border rounded mb-1 p-3 bg-dark mt-2">
-        <div className="w-100 overflow-custom">
+        {/* <div className="w-100 overflow-custom"> */}
+        <Scrollbars 
+          style={{ width: '100%', height: '73vh' }}
+          autoHide
+          // renderThumbVertical={({ style, ...props }) =>
+          //   <div {...props} style={{ ...style, backgroundColor: '#ff12c5', width: '4px', opacity: '0.5'}}></div>}
+          renderThumbVertical={(...props) => <div {...props} className="thumb-vertical" />}
+
+>
 
         {conversations.length ? null : 
           <div className="w-100 h-100 d-flex align-items-center justify-content-center">
@@ -76,12 +86,12 @@ class MessageDisplay extends React.Component {
 
           <div className={mainDivClass} key={`Message${index}`}>
             <div className={imgDivClass}>
-              <Image 
+              <img 
                 src={imgSrc} 
                 width="50" 
                 height="50" 
                 className="rounded-circle border-avatar-custom mb-2">
-              </Image>
+              </img>
             </div>
             <div className={messageDivClass}>
               <span className="conv-small d-inline-block ml-1 mr-2 text-light font-weight-bold">{username}</span>
@@ -96,7 +106,8 @@ class MessageDisplay extends React.Component {
 
         <div ref={(el) => { this.messagesEnd = el; }}></div>
 
-        </div>
+        </Scrollbars>
+        {/* </div> */}
       </div>
 
       {/* <div className="try-fix-height pt-0 w-100 ml-2">

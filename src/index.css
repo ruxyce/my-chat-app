@@ -46,10 +46,10 @@ html {
   background-color: #271933;
 }
 
-.overflow-custom {
+/* .overflow-custom {
   overflow-y: auto;
   height: 73vh;
-}
+} */
 
 .border-avatar-custom {
   border: 1px solid silver;
@@ -62,7 +62,7 @@ html {
 
 .height-userlist {
   height: 83vh;
-  overflow-y: auto;
+  /* overflow-y: auto; */
 }
 
 .try-fix-height {
@@ -94,4 +94,20 @@ html {
 .text-feedback {
   color: pink;
   text-align: center;
+}
+
+/* .track-vertical {
+  width: 5px;
+  background-color: white;
+} */
+
+.thumb-vertical {
+  width: 3px;
+  background-color: silver;
+  margin-left: 5px;
+}
+
+.userlist-thumb-vertical {
+  width: 10px;
+  background-color: silver;
 }
