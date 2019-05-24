@@ -47,13 +47,15 @@ class MessageDisplay extends React.Component {
       <div className="w-100 flex-grow-1 border rounded mb-1 p-3 bg-dark mt-2">
         {/* <div className="w-100 overflow-custom"> */}
         <Scrollbars 
-          style={{ width: '100%', height: '73vh' }}
+          style={{ 
+            width: '100%', 
+            height: '73vh',
+          }}
           autoHide
-          // renderThumbVertical={({ style, ...props }) =>
-          //   <div {...props} style={{ ...style, backgroundColor: '#ff12c5', width: '4px', opacity: '0.5'}}></div>}
-          renderThumbVertical={(...props) => <div {...props} className="thumb-vertical" />}
-
->
+          renderThumbVertical={props => <div {...props} className="thumb-vertical" />}
+          renderTrackHorizontal={props => <div {...props} style={{display: 'none'}} />}
+          renderView={props => <div {...props} style={{ ...props.style, overflowX: 'hidden' }} />}
+        >
 
         {conversations.length ? null : 
           <div className="w-100 h-100 d-flex align-items-center justify-content-center">
