@@ -26,7 +26,6 @@ class App extends React.Component {
       users: [],
       conversations: [],
       blocked: [],
-      sending: [],
     }
 
     Socket.emit('NEW_USER')
@@ -52,7 +51,7 @@ class App extends React.Component {
         let index = conversations.findIndex(x => x.timestamp == response.timestamp)
         console.log(`Found index: ${index}`)
         conversations[index] = { ...conversations[index] }
-        delete conversations[index].sending
+        delete conversations[index].ignorethis
         this.setState({ conversations })
       }
 
@@ -69,7 +68,7 @@ class App extends React.Component {
       else {
         console.log(`Match not found`)
         let conv = { ...response }
-        if (conv.sending) { delete conv.sending }
+        if (conv.ignorethis) { delete conv.ignorethis }
         let conversations = [...this.state.conversations, conv]
         this.setState({ conversations })
       }
@@ -82,7 +81,7 @@ class App extends React.Component {
       username: this.state.myUsername,
       message: message,
       timestamp: Date.now(),
-      sending: true,
+      ignorethis: true,
     }
     // let sending = [...this.state.sending]
     // sending.push(newConvo)
@@ -121,9 +120,13 @@ class App extends React.Component {
 
     return (
       
-      <React.Fragment>
+      // <div tabIndex="0" onKeyDown={() => {this.messageForm.messageInput.focus()}}>
+      <div>
 
-        <Container fluid className="chat-main-container mt-4">
+        <Container 
+          fluid 
+          className="chat-main-container mt-4"
+        >
           <Row className="h-100 chat-main-row">
             <Col md="3" className="px-2 pb-3">
 
@@ -134,7 +137,7 @@ class App extends React.Component {
               <Scrollbars 
                 style={{ width: '100%', height: '83vh' }}
                 className="bg-userlist border rounded mt-3"
-                renderThumbVertical={(...props) => <div {...props} className="userlist-thumb-vertical" />}
+                renderThumbVertical={(props) => <div {...props} className="userlist-thumb-vertical" />}
               >
 
 
@@ -176,6 +179,7 @@ class App extends React.Component {
                   onSend={this.handleSend} 
                   onClearBlockList={this.handleClearBlockList}
                   onClearWindow={this.handleClearWindow}
+                  ref={(el) => this.messageForm = el}
                 />
               </div>
 
@@ -197,7 +201,7 @@ class App extends React.Component {
 
         </Container>
 
-      </React.Fragment>
+      </div>
     )
 
   }

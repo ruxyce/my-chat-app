@@ -82,9 +82,11 @@ class MessageForm extends React.Component {
                 value={this.state.message}
                 placeholder="Enter a message..."
                 invalid={this.state.isInvalid}
-                autofocus="true"
+                autoFocus="true"
+                ref={(el) => {this.messageInput = el}}
                 // className="rounded-0"
               />
+              
               {/* <span> */}
                 {/* <InputGroupAddon addonType="append">
                   <Button style={{backgroundColor: 'rgb(82, 11, 82)'}} type="submit">Send</Button>

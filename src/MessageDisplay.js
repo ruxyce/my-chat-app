@@ -77,7 +77,7 @@ class MessageDisplay extends React.Component {
           let mainDivClass = "mt-1 mb-2 d-flex mr-2 "
           if (conv.username == this.props.myUsername) { 
             mainDivClass += "flex-row-reverse " 
-            if (conv.sending == true) { mainDivClass += "main-div-filter " }
+            if (conv.ignorethis == true) { mainDivClass += "main-div-filter " }
           }
 
           let imgDivClass = "d-flex flex-column justify-content-end p-1 "
