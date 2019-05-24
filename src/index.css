@@ -115,3 +115,7 @@ html {
 .main-div-filter {
   filter: blur(3px);
 }
+
+.send-button-color {
+  background-color: rgb(82, 11, 82);
+}

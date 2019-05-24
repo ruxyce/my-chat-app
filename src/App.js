@@ -107,6 +107,14 @@ class App extends React.Component {
     }
   }
 
+  handleClearBlockList = () => {
+    this.setState({ blocked: [] })
+  }
+
+  handleClearWindow = () => {
+    this.setState({ conversations: [] })
+  }
+
   render() {
       
     const { myUsername, conversations, blocked } = this.state
@@ -164,7 +172,11 @@ class App extends React.Component {
               <MessageDisplay myUsername={myUsername} conversations={conversations} blocked={blocked}/>
 
               <div className="try-fix-height pt-0 w-100">
-                <MessageForm onSend={this.handleSend} />
+                <MessageForm 
+                  onSend={this.handleSend} 
+                  onClearBlockList={this.handleClearBlockList}
+                  onClearWindow={this.handleClearWindow}
+                />
               </div>
 
             </Col>  
