@@ -20,8 +20,6 @@ class MessageDisplay extends React.Component {
     );
   }
 
-
-
   componentDidUpdate(prevProps) {
     if (prevProps.conversations.length != this.props.conversations.length) { 
       // if (this.props.conversations[this.props.conversations.length-1].username == this.props.myUsername ) {
@@ -77,7 +75,10 @@ class MessageDisplay extends React.Component {
           if (conv.username == this.props.myUsername) { username = "You" }
 
           let mainDivClass = "mt-1 mb-2 d-flex mr-2 "
-          if (conv.username == this.props.myUsername) { mainDivClass += "flex-row-reverse" }
+          if (conv.username == this.props.myUsername) { 
+            mainDivClass += "flex-row-reverse " 
+            if (conv.sending == true) { mainDivClass += "main-div-filter " }
+          }
 
           let imgDivClass = "d-flex flex-column justify-content-end p-1 "
 

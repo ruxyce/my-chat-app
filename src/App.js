@@ -26,6 +26,7 @@ class App extends React.Component {
       users: [],
       conversations: [],
       blocked: [],
+      sending: [],
     }
 
     Socket.emit('NEW_USER')
@@ -45,8 +46,34 @@ class App extends React.Component {
 
     Socket.on('RECEIVE_BROADCAST', response => {
       console.log(response)
-      let conversations = [...this.state.conversations, response]
-      this.setState({ conversations })
+
+      if (response.username == this.state.myUsername) { 
+        let conversations = [...this.state.conversations ]
+        let index = conversations.findIndex(x => x.timestamp == response.timestamp)
+        console.log(`Found index: ${index}`)
+        conversations[index] = { ...conversations[index] }
+        delete conversations[index].sending
+        this.setState({ conversations })
+      }
+
+      // let index = this.state.conversations.indexOf(response)
+      // console.log(`index: ${index}`)
+      // if (index != -1) {
+      //   console.log(`Match found`)
+      //   let conversations = [...this.state.conversations]
+      //   conversations[index] = { ...conversations[index] }
+      //   conversations[index].sending = false
+      //   this.setState({ conversations })
+      // }
+      
+      else {
+        console.log(`Match not found`)
+        let conv = { ...response }
+        if (conv.sending) { delete conv.sending }
+        let conversations = [...this.state.conversations, conv]
+        this.setState({ conversations })
+      }
+      
     })
   }
 
@@ -54,11 +81,16 @@ class App extends React.Component {
     const newConvo = {
       username: this.state.myUsername,
       message: message,
-      timestamp: Date.now()
+      timestamp: Date.now(),
+      sending: true,
     }
-
+    // let sending = [...this.state.sending]
+    // sending.push(newConvo)
+    // this.setState({ sending })
     Socket.emit('BROADCAST_MESSAGE', newConvo)
     console.log('Sending broadcast: ', newConvo)
+    let conversations = [...this.state.conversations, newConvo]
+    this.setState({ conversations })
   }
 
   handleBlockToggle = (user) => {

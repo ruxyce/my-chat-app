@@ -111,3 +111,7 @@ html {
   width: 10px;
   background-color: silver;
 }
+
+.main-div-filter {
+  filter: blur(3px);
+}
